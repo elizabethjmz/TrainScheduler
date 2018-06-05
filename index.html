@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Train Scheduler</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Title Section -->
+        <div class="row">
+            <div class="col jumbotron text-center bg-dark text-white">
+                <h1 id="header"><i class="fa fa-train" style="font-size:48px;color:white"></i> ANYTIME IS TRAIN TIME! </h1>
+                <h3 id="header">  Choo Choo. Chee Chee. </h3>
+            </div>
+        </div>
+        <!-- Trains Schedule Table -->
+        <div  class="row">
+            <div class="col card">
+                <div class="card-header">
+                    <h2><i class="fa fa-calendar-times-o" style="font-size:36px;"></i> Current Train Schedule</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody class="add_new">
+                                    
+                        </tbody>
+                     </table>
+                </div>
+            </div>
+        </div>
+            <br>
+        <!-- Add new train section -->
+        <div class="row">
+            <div class="col card">
+                <div class="card-header">
+                    <h2><i class="fa fa-plus-square" style="font-size:36px;"></i> Add Train</h2>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Train Name</label>
+                            <input type="text" class="form-control" id="train_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Destination</label>
+                            <input type="text" class="form-control" id="destination" >
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">First Train Time (HH:mm - Military Time)</label>
+                            <input type="text" class="form-control" id="start_time" >
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Frequency (min)</label>
+                            <input type="text" class="form-control" id="frequency" >
+                        </div>
+                        <button class="btn btn-primary" type="submit" id="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Javascript -->
+    <script type = "text/javascript" src="../TrainScheduler/assets/javascript/app.js"></script>
+
+</body>
+</html>
