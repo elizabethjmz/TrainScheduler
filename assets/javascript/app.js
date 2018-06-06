@@ -26,33 +26,24 @@
             var tFrequency = snapshot.val().frequency;
             console.log(tFrequency);
 
-            // Time is 3:30 AM
+            // First Train
             var firstTime = snapshot.val().firstTrain;
-
-            // First Time (pushed back 1 year to make sure it comes before current time)
             var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
-            console.log(firstTimeConverted);
 
             // Current Time
             var currentTime = moment();
 
-            console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-
             // Difference between the times
             var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-            console.log("DIFFERENCE IN TIME: " + diffTime);
 
             // Time apart (remainder)
             var tRemainder = diffTime % tFrequency;
-            console.log(tRemainder);
 
             // Minute Until Train
             var tMinutesTillTrain = tFrequency - tRemainder;
-            console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
             // Next Train
             var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-            console.log("ARRIVAL TIME: " + moment(nextTrain).format("LT"));
 
             var newRow = $("<tr>");
             var newTd = "<th>"+ snapshot.val().trainName + "</th>" + "<td>"+ snapshot.val().destination + "</td>" + "<td>"+ snapshot.val().frequency + "</td>"  + "<td>"+ moment(nextTrain).format("LT") + "</td>" + "<td>"+ tMinutesTillTrain + "</td>";
@@ -68,16 +59,13 @@ display();
 $("#submit").on("click", function(){
 
     event.preventDefault();
-
+    //Get values from input fields
     var trainName = $("#train_name").val().trim();
     var destination = $("#destination").val().trim();
     var frequency = $("#frequency").val().trim();
     var firstTrain = $("#start_time").val().trim();
-
-    
-
+    //Add values to firebase
     database.ref("/Trains").push( {
-  
       trainName: trainName,
       destination: destination,
       frequency: frequency,
@@ -86,6 +74,7 @@ $("#submit").on("click", function(){
     });
   
     display();
+    //To clear fields after submit
     $("#train_name").val("");
     $("#destination").val("");
     $("#frequency").val("");
